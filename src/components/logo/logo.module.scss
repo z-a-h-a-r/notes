@@ -1,0 +1,13 @@
+.body {
+	padding: 7px 15px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	background: black;
+
+	& span {
+		font-size: 13px;
+		user-select: none;
+		color: #fff;
+	}
+}
