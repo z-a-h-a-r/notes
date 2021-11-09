@@ -1,0 +1,42 @@
+.body {
+	display: flex;
+	align-items: center;
+	padding: 0 0 0 15px;
+	min-height: 40px;
+
+	.input {
+		width: 100%;
+		background-color: rgb(230, 230, 230);
+		height: 40px;
+		padding: 0 0 0 10px;
+		font-size: 18px;
+	}
+
+	.content {
+		padding: 0 0 0 10px;
+		margin: 5px 0;
+		font-size: 18px;
+		cursor: pointer;
+		max-width: 92%;
+		word-break: break-all;
+		text-align: justify;
+	}
+
+	.circle {
+		display: inline-block;
+		margin-right: 10px;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		border: 2px solid rgb(223, 188, 34);
+		margin-bottom: 1px;
+	}
+
+	.tag {
+		color: rgb(197, 151, 0);
+
+		&:hover {
+			color: rgb(228, 193, 78);
+		}
+	}
+}

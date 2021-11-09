@@ -17,16 +17,16 @@ const Header = () => {
 					<Logo />
 
 					<ul className={styles.menu}>
-						<NavLink to={'/'} className={styles.link}>
+						<NavLink to={'/'} className="link">
 							link
 						</NavLink>
-						<NavLink to={'/'} className={styles.link}>
+						<NavLink to={'/'} className="link">
 							link
 						</NavLink>
-						<NavLink to={'/'} className={styles.link}>
+						<NavLink to={'/'} className="link">
 							link
 						</NavLink>
-						<NavLink to={'/'} className={styles.link}>
+						<NavLink to={'/'} className="link">
 							link
 						</NavLink>
 					</ul>

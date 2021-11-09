@@ -1,7 +1,7 @@
 .header {
 	height: 70px;
-	background: #161616;
 	width: 100%;
+	border-bottom: 3px rgb(214, 214, 214) solid;
 
 	.inner {
 		height: 70px;
@@ -19,14 +19,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-	}
-
-	.link {
-		color: #fff;
-		cursor: pointer;
-		&:hover {
-			color: rgb(184, 184, 184);
-		}
 	}
 
 	@media (max-width: 500px) {

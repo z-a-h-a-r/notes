@@ -1,0 +1,41 @@
+.form {
+	height: 40px;
+	display: grid;
+	grid-template-columns: 12fr 1fr;
+	position: relative;
+
+	.input {
+		background: #d1d1d1;
+		height: 100%;
+		padding: 0px 0px 0px 8px;
+		border-radius: 0 0 0 6px;
+	}
+
+	.button {
+		height: 100%;
+		background: #bdbdbd;
+		border-radius: 0 0 6px 0;
+		font-size: 20px;
+
+		&:hover {
+			background: #c5c5c5;
+		}
+
+		.buttonIcon {
+			width: 30px;
+			height: 30px;
+		}
+
+		@media (max-width: 1300px) {
+			.buttonIcon {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		grid-template-columns: 9fr 1fr;
+		height: 50px;
+	}
+}

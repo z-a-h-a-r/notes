@@ -12,7 +12,7 @@ const Logo = props => {
 	return (
 		<NavLink to={'/'}>
 			<div className={styles.body}>
-				<span>Start</span>
+				<span>Notes</span>
 			</div>
 		</NavLink>
 	)
