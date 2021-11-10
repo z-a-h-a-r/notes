@@ -27,6 +27,9 @@ const Task = props => {
 		setForm((form = props.content))
 	}, [])
 
+	// ====================================================
+	// Logic
+
 	const _editTask = (id, content, isDone) => {
 		let tags = []
 		let arr = form.split(' ')
@@ -45,13 +48,10 @@ const Task = props => {
 			})
 		)
 	}
+
 	const isTag = content => {
 		if (content.substr(0, 1) === '#') {
-			return (
-				<span className={styles.tag} id={content}>
-					{content}
-				</span>
-			)
+			return <span className={styles.tag}>{content}</span>
 		} else {
 			return content
 		}

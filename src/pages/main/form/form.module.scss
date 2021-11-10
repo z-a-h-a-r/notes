@@ -9,6 +9,10 @@
 		height: 100%;
 		padding: 0px 0px 0px 8px;
 		border-radius: 0 0 0 6px;
+
+		@media (max-width: 572px) {
+			height: 30px;
+		}
 	}
 
 	.button {
@@ -31,6 +35,10 @@
 				width: 20px;
 				height: 20px;
 			}
+		}
+
+		@media (max-width: 572px) {
+			height: 30px;
 		}
 	}
 

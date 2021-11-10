@@ -17,7 +17,7 @@ const Footer = () => {
 						<ul>
 							<li>
 								<a
-									href="https://github.com/z-a-h-a-r"
+									href="https://github.com/z-a-h-a-r/notes"
 									className="link"
 									target="_blank"
 								>
@@ -35,20 +35,7 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-					<div className={[styles.apis, styles.column].join('')}>
-						<p>API</p>
-						<ul>
-							<li>
-								<a
-									href="https://www.themoviedb.org/settings/api"
-									className="link"
-									target="_blank"
-								>
-									api
-								</a>
-							</li>
-						</ul>
-					</div>
+
 					<div className={[styles.contacs, styles.column].join('')}>
 						<p>Contacs</p>
 						<ul>

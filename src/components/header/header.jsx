@@ -16,20 +16,13 @@ const Header = () => {
 				<div className={styles.inner}>
 					<Logo />
 
-					<ul className={styles.menu}>
-						<NavLink to={'/'} className="link">
-							link
-						</NavLink>
-						<NavLink to={'/'} className="link">
-							link
-						</NavLink>
-						<NavLink to={'/'} className="link">
-							link
-						</NavLink>
-						<NavLink to={'/'} className="link">
-							link
-						</NavLink>
-					</ul>
+					<a
+						href="https://github.com/z-a-h-a-r"
+						className="link"
+						target="_blank"
+					>
+						My GitHub
+					</a>
 				</div>
 			</div>
 		</header>

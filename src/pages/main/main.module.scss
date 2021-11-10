@@ -1,5 +1,5 @@
 .body {
-	margin: 60px 0 0 0;
+	margin: 60px 0 60px 0;
 	height: 100%;
 
 	.list {
@@ -34,9 +34,14 @@
 				background: rgb(160, 160, 160);
 			}
 		}
-		.list .task:nth-child(even) {
-			background: rgb(221, 221, 221);
+
+		.task {
+			border-bottom: 1px solid rgb(221, 221, 221);
 			margin: 0;
+		}
+
+		.activeTask {
+			background: rgb(221, 221, 221);
 		}
 	}
 	.tags {
@@ -47,12 +52,13 @@
 			font-weight: 500;
 			color: rgb(187, 187, 187);
 		}
+
 		.tagsList {
 			margin: 30px 0 0 0;
 			padding: 10px 5px;
-			min-height: 10vh;
+			min-height: 70px;
 			background: #fff;
-			border-radius: 6px;
+			border-radius: 6px 6px 0 0;
 
 			& p {
 				color: rgb(187, 187, 187);
@@ -61,10 +67,23 @@
 
 			.tag {
 				color: rgb(197, 151, 0);
+				cursor: pointer;
 
 				&:hover {
 					color: rgb(228, 193, 78);
 				}
+			}
+		}
+
+		.input {
+			background: #d1d1d1;
+			width: 100%;
+			height: 40px;
+			padding: 0px 0px 0px 8px;
+			border-radius: 0 0 6px 6px;
+
+			@media (max-width: 572px) {
+				height: 30px;
 			}
 		}
 	}
