@@ -30,23 +30,24 @@ const Task = props => {
 	// ====================================================
 	// Logic
 
-	const _editTask = (id, content, isDone) => {
-		let tags = []
-		let arr = form.split(' ')
-		arr.forEach(i => {
-			if (i.substr(0, 1) === '#') {
-				tags.push(i)
+	const _editTask = (id, content, tags) => {
+		let prevTasks = JSON.parse(localStorage.getItem('tasks'))
+		let newTasks = []
+		let newTask = {
+			id,
+			content,
+			tags,
+		}
+
+		dispatch(editTask(id, newTask))
+
+		prevTasks.map(i => {
+			if (i.id !== newTask.id) {
+				newTasks.push(i)
 			}
 		})
 
-		dispatch(
-			editTask(id, {
-				id,
-				content,
-				isDone,
-				tags,
-			})
-		)
+		localStorage.setItem('tasks', JSON.stringify([...newTasks, newTask]))
 	}
 
 	const isTag = content => {
@@ -66,6 +67,17 @@ const Task = props => {
 				className={styles.circle}
 				onClick={() => {
 					dispatch(deleteTask(props.id))
+
+					let prevTasks = JSON.parse(localStorage.getItem('tasks'))
+					let newTasks = []
+
+					prevTasks.map(i => {
+						if (i.id !== props.id) {
+							newTasks.push(i)
+						}
+					})
+
+					localStorage.setItem('tasks', JSON.stringify([...newTasks]))
 				}}
 			></div>
 			{!isEditMode ? (
@@ -85,17 +97,17 @@ const Task = props => {
 					onBlur={() => {
 						setIsEditMode(false)
 
-						_editTask(props.id, form, false)
+						_editTask(props.id, form, props.tags)
 					}}
 					className={styles.input}
 					value={form}
-					onKeyDown={e => {
-						console.log(e)
-						if (e.keyCode === 123) {
-							_editTask(props.id, form, false)
-							setIsEditMode(false)
-						}
-					}}
+					// onKeyDown={e => {
+					// 	console.log(e)
+					// 	if (e.keyCode === 123) {
+					// 		_editTask(props.id, form, false)
+					// 		setIsEditMode(false)
+					// 	}
+					// }}
 					onChange={e => {
 						setForm(e.target.value)
 					}}

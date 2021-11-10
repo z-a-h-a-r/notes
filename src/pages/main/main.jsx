@@ -14,7 +14,14 @@ const Main = props => {
 	// ====================================================
 	// Variables
 
+	// ====================================================
+	// State
+
 	let tasks = useSelector(state => state.app.tasks)
+
+	// ====================================================
+	// Local state
+
 	let [isActiveTask, setIsActiveTask] = useState()
 	let [form, setForm] = useState()
 	let [tagsSearch, setTagsSearch] = useState([])
@@ -50,7 +57,7 @@ const Main = props => {
 								}
 								id={`${i.id}`}
 							>
-								<Task content={i.content} id={i.id} isDone={i.isDone} />
+								<Task content={i.content} id={i.id} tags={i.tags} />
 							</div>
 						))}
 				</div>
@@ -102,7 +109,7 @@ const Main = props => {
 						type="text"
 						value={form}
 						className={styles.input}
-						placeholder={'Type new note...'}
+						placeholder={'Search tag...'}
 						autocomplete="off"
 						className={styles.input}
 						onChange={e => {

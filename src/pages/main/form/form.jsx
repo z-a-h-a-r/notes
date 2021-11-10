@@ -1,25 +1,31 @@
 // ====================================================
 // IMPORTS
 import React, { useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTask } from '../../../reducers/appReducer'
 import st from './form.module.scss'
+import { addTaskToLocalStorage } from '../../../utils/localStorageHandler'
 
 // ====================================================
 // Component
 
 const Form = props => {
 	// ====================================================
+	// State
+
+	let tasks = useSelector(state => state.app.tasks)
+
+	// ====================================================
 	// Variables
 
 	const dispatch = useDispatch()
+	let lastItemId = tasks[tasks.length - 1] ? tasks[tasks.length - 1].id : 0
 
 	// ====================================================
 	// Local state
 
 	let [form, setForm] = useState('')
 	let [isSubmitting, setIsSubmitting] = useState(false)
-	let id = useRef(0)
 
 	// ====================================================
 	// Logic
@@ -34,19 +40,19 @@ const Form = props => {
 				tags.push(i)
 			}
 		})
-
+		lastItemId++
 		if (form.length !== 0) {
-			dispatch(
-				addTask({
-					content: form,
-					id: id.current,
-					isDone: false,
-					tags: tags,
-				})
-			)
+			let newTask = {
+				content: form,
+				id: lastItemId,
+				tags: tags,
+			}
+
+			dispatch(addTask(newTask))
+			addTaskToLocalStorage(newTask)
 		}
+
 		setForm('')
-		id.current++
 		setIsSubmitting(false)
 	}
 

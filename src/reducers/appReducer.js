@@ -7,7 +7,7 @@
 const SET_INITIALIZED = 'SET_INITIALIZED'
 const ADD_TASK = 'ADD_TASK'
 const DELETE_TASK = 'DELETE_TASK'
-const DELETE_TASKS = 'DELETE_TASKS'
+const SET_TASKS = 'SET_TASKS'
 const EDIT_TASK = 'EDIT_TASK'
 
 // ====================================================
@@ -40,10 +40,10 @@ const appReducer = (state = initialState, action) => {
 				tasks: state.tasks.filter(i => i.id != action.id),
 			}
 
-		case DELETE_TASKS:
+		case SET_TASKS:
 			return {
 				...state,
-				tasks: [],
+				tasks: action.payload,
 			}
 
 		case EDIT_TASK:
@@ -72,8 +72,9 @@ export const deleteTask = id => ({
 	type: DELETE_TASK,
 	id,
 })
-export const deleteTasks = () => ({
-	type: DELETE_TASKS,
+export const setTasks = payload => ({
+	type: SET_TASKS,
+	payload,
 })
 export const editTask = (id, task) => ({
 	type: EDIT_TASK,
@@ -87,7 +88,12 @@ export const editTask = (id, task) => ({
 export const initializeApp = () => {
 	return async dispatch => {
 		new Promise((resolve, reject) => {
-			resolve()
+			let tasks = JSON.parse(localStorage.getItem('tasks'))
+			if (tasks) {
+				resolve(dispatch(setTasks(tasks)))
+			} else {
+				resolve()
+			}
 		}).then(() => {
 			return new Promise((resolve, reject) => {
 				resolve(dispatch(initializeSuccess()))
